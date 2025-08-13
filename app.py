@@ -89,7 +89,7 @@ def script_form(script_id):
         try:
             # Call your script function
             result = run_lab_removal(
-                excel_file_path=excel_file_path,
+                excel_file_path=file_path,
                 modified_by_function=modified_by_function,
                 db_username=db_username,
                 db_password=db_password,

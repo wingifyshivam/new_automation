@@ -36,12 +36,6 @@
 <body>
     <h2>Run Lab Removal Script</h2>
     <form method="POST" enctype="multipart/form-data">
-        <label>DB Username:</label>
-        <input type="text" name="db_username" required>
-
-        <label>DB Password:</label>
-        <input type="password" name="db_password" required>
-
         <label>DB Name:</label>
         <select name="db_name" required>
             <option value="">-- Select Database --</option>
@@ -55,7 +49,7 @@
         <input type="text" name="modified_by_function" required>
 
         <label>Excel File:</label>
-        <input type="file" name="excel_file" accept=".xlsx" required>
+        <input type="text" name="excel_file_path" placeholder="e.g., C:\Users\John\Documents\data.xlsx" required>
 
         <button type="submit">Run Script</button>
     </form>

@@ -1,18 +1,63 @@
-<form method="POST" enctype="multipart/form-data">
-    <label>DB Username:</label>
-    <input type="text" name="db_username" required><br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Removal Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        form {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            margin: 8px 0 16px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Run Lab Removal Script</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <label>DB Username:</label>
+        <input type="text" name="db_username" required>
 
-    <label>DB Password:</label>
-    <input type="password" name="db_password" required><br>
+        <label>DB Password:</label>
+        <input type="password" name="db_password" required>
 
-    <label>DB Name:</label>
-    <input type="text" name="db_name" value="BUPA/Onebright/Nuffield/Newmedica" required><br>
+        <label>DB Name:</label>
+        <select name="db_name" required>
+            <option value="">-- Select Database --</option>
+            <option value="BUPA">BUPA</option>
+            <option value="Onebright">Onebright</option>
+            <option value="Nuffield">Nuffield</option>
+            <option value="Newmedica">Newmedica</option>
+        </select>
 
-    <label>Modified By Function:</label>
-    <input type="text" name="modified_by_function" required><br>
+        <label>Modified By Function:</label>
+        <input type="text" name="modified_by_function" required>
 
-    <label>Excel File:</label>
-    <input type="file" name="excel_file" accept=".xlsx" required><br>
+        <label>Excel File:</label>
+        <input type="file" name="excel_file" accept=".xlsx" required>
 
-    <button type="submit">Run Script</button>
-</form>
+        <button type="submit">Run Script</button>
+    </form>
+</body>
+</html>

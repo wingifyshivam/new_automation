@@ -43,6 +43,7 @@ def login():
         password = request.form["password"]
         if username in users and users[username] == password:
             session["username"] = username
+            session["password"] = password
             return redirect(url_for("dashboard"))
         else:
             flash("Invalid credentials!", "danger")

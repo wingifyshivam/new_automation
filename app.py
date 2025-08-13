@@ -84,7 +84,7 @@ def script_form(script_id):
         db_password = session["password"]   # use login password
         db_name = request.form.get("db_name")
         modified_by_function = request.form.get("modified_by_function")
-        excel_file_path = request.form["excel_file_path"]
+        file_path = request.form["excel_file_path"]
 
         try:
             # Call your script function

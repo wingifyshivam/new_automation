@@ -6,7 +6,7 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-@app.route("/run_lab_removal", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def run_lab_removal_route():
     if request.method == "POST":
         # Get inputs from the form

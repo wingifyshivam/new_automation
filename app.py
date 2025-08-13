@@ -82,6 +82,8 @@ def script_form(script_id):
     if request.method == "POST":
         db_username = session["username"]   # use login username
         db_password = session["password"]   # use login password
+        print(f"DB Username: {db_username}")
+        print(f"DB Password: {db_password}")
         db_name = request.form.get("db_name")
         modified_by_function = request.form.get("modified_by_function")
         file_path = request.form.get("excel_file_path")

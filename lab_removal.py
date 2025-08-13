@@ -3,7 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from itertools import chain
 
-def run_lab_removal(file_path, modified_by_function, db_username, db_password, db_name):
+def run_lab_removal(excel_file_path, modified_by_function, db_username, db_password, db_name):
     # Database connection details
     #db_username = os.getenv('DB_USERNAME', 'shivam.a')
     #db_password = os.getenv('DB_PASSWORD', 'Shivam_1994')

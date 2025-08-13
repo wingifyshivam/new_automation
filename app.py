@@ -64,9 +64,18 @@ def dashboard():
 
 # Script form route
 @app.route("/script/<script_id>", methods=["GET", "POST"])
-def lab_removal_route():
+def script_form():
     if "username" not in session:
         return redirect(url_for("login"))
+
+    # Define inputs for scripts
+    inputs = []
+    template_name = "script_form.html"
+
+    if script_id == "lab_removal":
+        # For lab removal, we only ask for the file path since DB creds come from login
+        inputs = ["file_path"]
+        template_name = "lab_removal_form.html"
 
     if request.method == "POST":
         db_username = session["username"]   # use login username

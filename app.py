@@ -64,7 +64,7 @@ def dashboard():
 
 # Script form route
 @app.route("/script/<script_id>", methods=["GET", "POST"])
-def script_form():
+def script_form(script_id):
     if "username" not in session:
         return redirect(url_for("login"))
 

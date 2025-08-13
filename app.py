@@ -28,3 +28,6 @@ def run_lab_removal_route():
         return render_template("result.html", result=result)
 
     return render_template("lab_removal_form.html")
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)

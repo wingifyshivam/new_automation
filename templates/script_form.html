@@ -7,21 +7,25 @@
 </head>
 <body class="bg-light">
 <div class="container mt-5">
-    <h2>Enter Parameters for Script: {{ script_id }}</h2>
-    <form method="POST">
-        <div class="mb-3">
-            <label class="form-label">DB Username</label>
-            <input type="text" name="db_user" class="form-control" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">DB Password</label>
-            <input type="password" name="db_pass" class="form-control" required>
-        </div>
-        {% for field in inputs %}
-        <div class="mb-3">
-            <label class="form-label">{{ field | capitalize }}</label>
-            <input type="text" name="{{ field }}" class="form-control" required>
-        </div>
+    <h2>Run Script: {{ script_id }}</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% for field in fields %}
+            <div class="mb-3">
+                <label class="form-label">{{ field.label }}</label>
+
+                {% if field.type == 'text' or field.type == 'password' %}
+                    <input type="{{ field.type }}" name="{{ field.name }}" class="form-control" required>
+                {% elif field.type == 'file' %}
+                    <input type="file" name="{{ field.name }}" class="form-control" accept=".xlsx" required>
+                {% elif field.type == 'select' %}
+                    <select name="{{ field.name }}" class="form-control" required>
+                        <option value="">-- Select --</option>
+                        {% for option in field.options %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                {% endif %}
+            </div>
         {% endfor %}
         <button type="submit" class="btn btn-primary">Run Script</button>
         <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Back</a>

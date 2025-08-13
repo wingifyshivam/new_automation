@@ -98,13 +98,25 @@ def run_lab_removal(file_path, modified_by_function, db_username, db_password, d
         connection.close()
 
     # Write update/rollback statements to files (same paths as before)
-    implementation_file_path = f'C:/Users/ShivamAggarwal/OneDrive - Health Catalyst/Desktop/Scripts/BUPA/{modified_by_function}/implementation_script.sql'
+    # implementation_file_path = f'C:/Users/ShivamAggarwal/OneDrive - Health Catalyst/Desktop/Scripts/BUPA/{modified_by_function}/implementation_script.sql'
+    # os.makedirs(os.path.dirname(implementation_file_path), exist_ok=True)
+    implementation_file_path = os.path.join(
+        "generated_scripts",
+        modified_by_function,
+        "implementation_script.sql"
+    )
     os.makedirs(os.path.dirname(implementation_file_path), exist_ok=True)
     with open(implementation_file_path, 'w') as sql_file:
         for statement in update_statements:
             sql_file.write(statement + '\n')
 
-    rollback_file_path = f'C:/Users/ShivamAggarwal/OneDrive - Health Catalyst/Desktop/Scripts/BUPA/{modified_by_function}/rollback_script.sql'
+    # rollback_file_path = f'C:/Users/ShivamAggarwal/OneDrive - Health Catalyst/Desktop/Scripts/BUPA/{modified_by_function}/rollback_script.sql'
+    # os.makedirs(os.path.dirname(rollback_file_path), exist_ok=True)
+    rollback_file_path = os.path.join(
+        "generated_scripts",
+        modified_by_function,
+        "rollback_script.sql"
+    )
     os.makedirs(os.path.dirname(rollback_file_path), exist_ok=True)
     with open(rollback_file_path, 'w') as sql_file:
         for statement in rollback_statements:

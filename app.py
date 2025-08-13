@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.utils import secure_filename
 import os
+from lab_removal import run_lab_removal
 
 # Initialize app
 app = Flask(__name__)
